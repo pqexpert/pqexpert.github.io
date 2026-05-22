@@ -25,10 +25,25 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 
 // --- Protected identity rendering ---
-// Names rendered at runtime via JS — not present as plain text in HTML source.
-// Prevents indexing/scraping of legal identity by crawlers and aggregators.
+// Names rendered at runtime via JS only — never present as plain text in HTML.
+// Prevents indexing by crawlers, aggregators, and scrapers.
 document.querySelectorAll('.protected-identity').forEach(function(el) {
-  try {
-    el.textContent = atob(el.getAttribute('data-n'));
-  } catch (e) { /* silently fail — element stays empty */ }
+  try { el.textContent = atob(el.getAttribute('data-n')); }
+  catch (e) { /* silently fail */ }
 });
+
+// --- Identity reveal toggle ---
+(function() {
+  const btn   = document.getElementById('identityReveal');
+  const panel = document.getElementById('identityRevealPanel');
+  if (!btn || !panel) return;
+
+  btn.addEventListener('click', function() {
+    const open = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', String(!open));
+    panel.hidden = open;
+    this.classList.toggle('is-open', !open);
+    const label = this.querySelector('.identity-reveal-label');
+    if (label) label.textContent = open ? 'Legal identity' : 'Close';
+  });
+})();
