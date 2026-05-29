@@ -1,0 +1,8 @@
+PQExpert Media Package
+======================
+
+Stego Verification: https://www.pqexpert.ioþ
+SHA256: 5be273090f23e8db512358c9b799843687e9bfb65f96d078779a078490ec2d6e
+URL: https://www.pqexpert.io
+Metadata Embedded: YES
+QR Asset Generated: YES
