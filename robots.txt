@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /thanks.html
 Disallow: /deploy.sh
+Disallow: /assets/provenance/
 
 Sitemap: https://pqexpert.io/sitemap.xml
