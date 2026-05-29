@@ -1,0 +1,21 @@
+{
+  "claim_generator": "OpenAI ChatGPT",
+  "title": "PQExpert Professional Headshot",
+  "format": "image/png",
+  "created": "2026-05-28T22:36:16.573197Z",
+  "assertions": {
+    "author": "Josh Allen",
+    "organization": "PQExpert",
+    "url": "https://www.pqexpert.io",
+    "intended_use": [
+      "digital publication",
+      "conference bio",
+      "think tank article",
+      "professional branding"
+    ],
+    "synthetic_assistance": true,
+    "source_basis": "Derived from user-supplied reference photographs",
+    "steganographic_payload": "https://www.pqexpert.io"
+  },
+  "sha256": "00c11655550b788d661605596a2133e65f74873c99b772b4de9afbff609c0512"
+}
