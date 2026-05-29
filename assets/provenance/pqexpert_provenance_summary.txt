@@ -1,8 +1,11 @@
-PQExpert Media Package
-======================
+PQExpert Professional Media Verification
+========================================
 
-Stego Verification: https://www.pqexpert.ioþ
-SHA256: 5be273090f23e8db512358c9b799843687e9bfb65f96d078779a078490ec2d6e
 URL: https://www.pqexpert.io
-Metadata Embedded: YES
-QR Asset Generated: YES
+Author: Josh Allen
+Organization: PQExpert
+Generated: 2026-05-28T22:36:16Z
+Intended use: professional portfolio, hiring-manager review, recruiter context, RSC partner or client due diligence
+Disclosure: AI-assisted professional headshot derived from user-supplied reference photographs.
+C2PA status: plain provenance-style transparency record; not a signed C2PA certificate.
+Protected identity note: Legal identity materials are disclosed only when appropriate for employment, contracting, academic, or compliance review.
