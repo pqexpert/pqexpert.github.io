@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verified Identity &amp; Work Provenance | PQExpert.io</title>
-  <meta name="description" content="Plain verification page for PQExpert.io professional media provenance, image SHA-256 digest, manifest hash, intended use, and AI-assistance disclosure." />
+  <title>Professional Verification | PQExpert.io</title>
+  <meta name="description" content="A concise professional verification page for PQExpert.io, Josh Allen, and public portfolio media transparency." />
   <link rel="canonical" href="https://pqexpert.io/provenance.html" />
-  <meta property="og:title" content="Verified Identity &amp; Work Provenance | PQExpert.io" />
-  <meta property="og:description" content="Plain verification page for PQExpert.io professional media provenance." />
+  <meta property="og:title" content="Professional Verification | PQExpert.io" />
+  <meta property="og:description" content="Concise verification context for PQExpert.io professional review." />
   <meta property="og:image" content="https://pqexpert.io/assets/img/og-image.jpg" />
   <meta property="og:url" content="https://pqexpert.io/provenance.html" />
   <meta property="og:type" content="website" />
@@ -16,52 +16,61 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+  <style>
+    .verification-shell { max-width: 820px; margin: 0 auto; }
+    .verification-card { border: 1px solid var(--border); border-radius: 8px; background: var(--surface); padding: 24px; }
+    .verification-list { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+    .verification-list li { display: grid; gap: 4px; }
+    .verification-key { color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0; }
+    .verification-value { color: var(--text); }
+    .digest-details { margin-top: 24px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); padding: 18px; }
+    .digest-details summary { cursor: pointer; font-weight: 700; }
+    .digest-row { display: grid; gap: 6px; padding: 14px 0; border-top: 1px solid var(--border); }
+    .digest-row:first-of-type { margin-top: 12px; }
+    .digest-label { color: var(--text-muted); font-size: 0.82rem; }
+    .digest-value { font-family: "JetBrains Mono", monospace; font-size: 0.78rem; line-height: 1.55; overflow-wrap: anywhere; color: var(--text); }
+    .headshot-inline { width: 128px; height: 128px; border-radius: 8px; object-fit: cover; border: 1px solid var(--border); }
+    .verification-media { display: flex; gap: 18px; align-items: center; margin: 22px 0; }
+    @media (max-width: 640px) { .verification-card { padding: 18px; } .verification-media { align-items: flex-start; } }
+  </style>
 </head>
 <body>
-  <header class="site-header"><div class="container nav-container"><a href="/" class="nav-logo">Josh Allen</a><nav class="nav-links" id="navLinks"><a href="/about.html">About</a><a href="/capabilities.html">Capabilities</a><a href="/work.html">Work</a><a href="/writing.html">Writing</a><a href="/rsc.html">RSC</a><a href="/career.html">Career</a><a href="/provenance.html" class="active">Verification</a><a href="/contact.html" class="nav-cta">Contact</a></nav><button class="nav-hamburger" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button></div></header>
+  <header class="site-header"><div class="container nav-container"><a href="/" class="nav-logo">Josh Allen</a><nav class="nav-links" id="navLinks"><a href="/about.html">About</a><a href="/capabilities.html">Capabilities</a><a href="/work.html">Work</a><a href="/writing.html">Writing</a><a href="/rsc.html">RSC</a><a href="/career.html">Career</a><a href="/contact.html" class="nav-cta">Contact</a></nav><button class="nav-hamburger" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button></div></header>
   <main>
-    <section class="page-header"><div class="container"><span class="section-label">Verification</span><h1>Verified Identity &amp; Work Provenance</h1><p>This section links Josh Allen's public professional portfolio to permanent work identifiers, authorship records, and verified identity materials where disclosure is appropriate.</p></div></section>
+    <section class="page-header"><div class="container verification-shell"><span class="section-label">Due Diligence</span><h1>Professional Verification</h1><p>This page exists for hiring managers, recruiters, partners, and RSC prospects who need a concise way to verify the public portfolio context without exposing private identity materials.</p></div></section>
 
     <section style="padding-top:48px;">
-      <div class="container" style="display:grid;grid-template-columns:minmax(0,1.1fr) 320px;gap:40px;align-items:start;">
-        <div>
-          <h2>Professional Media Record</h2>
-          <p>This page publishes a simple verification record for the professional headshot and associated manifest. The posture is intentionally plain: clean image, manifest, hash digests, date, intended use, and disclosure.</p>
-          <div class="warn-block" style="max-width:760px;">This is a provenance-style metadata record, not a formally signed industry-standard C2PA certificate. It is provided for transparency and professional chain-of-custody context.</div>
-          <table class="data-table" style="margin-top:24px;">
-            <tbody>
-              <tr><td style="color:var(--text-muted);width:190px;">Author</td><td>Josh Allen</td></tr>
-              <tr><td style="color:var(--text-muted);">Organization</td><td>PQExpert</td></tr>
-              <tr><td style="color:var(--text-muted);">URL</td><td><a href="https://www.pqexpert.io" target="_blank" rel="noopener">https://www.pqexpert.io</a></td></tr>
-              <tr><td style="color:var(--text-muted);">Generated</td><td>2026-05-28T22:36:16.573197Z</td></tr>
-              <tr><td style="color:var(--text-muted);">Intended use</td><td>Digital publication, conference bio, think tank article, professional branding</td></tr>
-              <tr><td style="color:var(--text-muted);">Disclosure</td><td>AI-assisted from user-supplied reference photographs</td></tr>
-            </tbody>
-          </table>
+      <div class="container verification-shell">
+        <div class="verification-card">
+          <h2>What This Page Verifies</h2>
+          <div class="verification-media"><img class="headshot-inline" src="/assets/img/headshot.jpg" alt="Josh Allen professional headshot" /><p>Public image use is limited to a clean professional headshot and basic provenance-style disclosure. Reference photos, legal identity documents, and private verification materials are not published here.</p></div>
+          <ul class="verification-list">
+            <li><span class="verification-key">Portfolio</span><span class="verification-value"><a href="https://www.pqexpert.io" target="_blank" rel="noopener">https://www.pqexpert.io</a></span></li>
+            <li><span class="verification-key">Public professional identity</span><span class="verification-value">Josh Allen</span></li>
+            <li><span class="verification-key">Organization context</span><span class="verification-value">PQExpert / Restoration Security Consultants context where appropriate</span></li>
+            <li><span class="verification-key">Media disclosure</span><span class="verification-value">AI-assisted professional headshot derived from user-supplied reference photographs.</span></li>
+            <li><span class="verification-key">Intended use</span><span class="verification-value">Professional portfolio review, recruiter context, hiring-manager review, and RSC partner or client due diligence.</span></li>
+            <li><span class="verification-key">Contact route</span><span class="verification-value"><a href="mailto:restorationgroup@pm.me">restorationgroup@pm.me</a></span></li>
+          </ul>
         </div>
-        <aside class="card" style="padding:18px;"><img src="/assets/img/headshot.jpg" alt="Josh Allen professional headshot" style="width:100%;border-radius:8px;border:1px solid var(--border);" /><p style="font-size:0.78rem;color:var(--text-muted);margin:12px 0 0;">Public image: clean professional headshot only. Reference photographs and private identity materials are not published here.</p></aside>
+
+        <details class="digest-details">
+          <summary>Digest and Manifest Records</summary>
+          <p style="color:var(--text-muted);margin-bottom:4px;">These records are intentionally secondary. They support transparency, but the portfolio is meant to lead with work, capability, and contact readiness.</p>
+          <div class="digest-row"><span class="digest-label">Reviewed professional headshot file SHA-256</span><span class="digest-value">fa52a41ab4adb333823d07e946209f6b22a14f24cf1fd68ec3a94d22ea9ff83c</span></div>
+          <div class="digest-row"><span class="digest-label">Published manifest JSON SHA-256</span><span class="digest-value">2910f63bd574f290c1d3027752338f59292cc1e5c278b7761aef7ba9f6ba81b0</span></div>
+          <div class="digest-row"><span class="digest-label">Published summary text SHA-256</span><span class="digest-value">279bcb5bbd9bdf9c74dcfd63a0253dba17c2bcbb9af7aa616e84cb020fbc3e7f</span></div>
+          <div class="digest-row"><span class="digest-label">C2PA caveat readme SHA-256</span><span class="digest-value">10e1a80af95a8f17f9bbda0952393fa54fc1745f5472b9c484845d140187b6cd</span></div>
+          <div class="btn-group"><a href="/assets/provenance/pqexpert_manifest.json" class="btn btn-primary">Manifest JSON</a><a href="/assets/provenance/pqexpert_provenance_summary.txt" class="btn btn-outline">Summary</a><a href="/assets/provenance/c2pa_readme.txt" class="btn btn-outline">C2PA Caveat</a></div>
+        </details>
+
+        <div class="verification-card" style="margin-top:24px;">
+          <h2>Controlled Identity Disclosure</h2>
+          <p>Public-facing portfolio materials use Josh Allen. Legal identity and entity details are disclosed only when they are needed for employment, contracting, academic, account, or compliance review.</p>
+          <p>This keeps the site aligned with the portfolio governance model: evidence first, no unnecessary exposure, and no confusing entity-chain explanation on public pages.</p>
+        </div>
       </div>
     </section>
-
-    <section style="padding-top:24px;">
-      <div class="container">
-        <h2>Hash Verification</h2>
-        <div class="card" style="overflow:auto;padding:0;">
-          <table class="data-table" style="margin:0;min-width:760px;">
-            <thead><tr><th>Item</th><th>SHA-256 Digest</th></tr></thead>
-            <tbody>
-              <tr><td>Professional headshot source image</td><td class="mono">622397695ad32102e74835281bf07fe70485ab753aa5e3e2a515d676fc7f8031</td></tr>
-              <tr><td>Published manifest file</td><td class="mono">78805be0629d851e9235b855f383f68cea185142ddf7623fa9280d564ac78b81</td></tr>
-              <tr><td>Provenance summary text</td><td class="mono">a92bbe4d75c4c530691752ebf8229b028372095b947ce8ee2946ac0641f0711d</td></tr>
-              <tr><td>C2PA caveat readme</td><td class="mono">bc281c82df5be980d99e45503c1cc2c55ecd5c4f0a63a3f5ce57faefdcedc547</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="btn-group"><a href="/assets/provenance/pqexpert_manifest.json" class="btn btn-primary">Manifest JSON</a><a href="/assets/provenance/pqexpert_provenance_summary.txt" class="btn btn-outline">Summary</a><a href="/assets/provenance/c2pa_readme.txt" class="btn btn-outline">C2PA Caveat</a></div>
-      </div>
-    </section>
-
-    <section style="padding-top:24px;"><div class="container"><h2>Controlled Identity Disclosure</h2><div class="identity-layer"><div class="identity-primary-row"><div><div class="identity-name-display">Josh Allen</div><div class="identity-subtitle">Public-facing professional identity</div></div><button class="identity-reveal-btn" id="identityReveal" aria-expanded="false" aria-controls="identityRevealPanel"><span aria-hidden="true">&#128274;</span><span class="identity-reveal-label">Verified identity context</span></button></div><div class="identity-reveal-panel" id="identityRevealPanel" hidden><p class="identity-reveal-note">Identity disclosure is limited to appropriate legal, contractual, academic, or governance contexts. Public-facing materials default to Josh Allen.</p><div class="identity-fields"><div class="identity-field"><span class="identity-field-key">Portfolio</span><span class="identity-field-val">PQExpert.io</span></div><div class="identity-field"><span class="identity-field-key">ORCID</span><span class="identity-field-val"><a class="identity-orcid-link" href="https://orcid.org/0009-0006-8647-2720" target="_blank" rel="noopener">0009-0006-8647-2720</a></span></div><div class="identity-field"><span class="identity-field-key">Contact</span><span class="identity-field-val"><a href="mailto:restorationgroup@pm.me">restorationgroup@pm.me</a></span></div></div><p class="identity-reveal-footer">Additional legal-name or entity materials are not published unless disclosure is required and appropriate.</p></div></div></div></section>
   </main>
   <footer class="site-footer"><div class="container footer-inner"><div class="footer-brand"><span class="footer-wordmark">PQExpert.io</span><span class="footer-tagline">Cybersecurity, infrastructure, and systems resilience.</span></div><div class="footer-links"><a href="https://linkedin.com/in/restorationsecurity" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://medium.com/the-restoration-ledger" target="_blank" rel="noopener noreferrer">The Restoration Ledger</a><a href="/provenance.html">Verification</a><a href="mailto:restorationgroup@pm.me">Email</a></div><p class="footer-legal">&copy; 2026 Josh Allen / PQExpert.io</p></div></footer>
   <script src="/assets/js/main.js"></script>
