@@ -1,4 +1,4 @@
-This package contains a provenance-style metadata manifest.
-It is NOT a formally signed industry-standard C2PA certificate.
-However, it preserves provenance assertions, SHA256 integrity references,
-and embedded metadata suitable for professional digital branding workflows.
+This directory contains a plain provenance-style transparency record for PQExpert.io professional media.
+It is not a formally signed industry-standard C2PA certificate.
+The public page intentionally publishes only minimal professional verification context: portfolio URL, author, organization, intended use, disclosure, and digest references.
+Private reference photographs and legal identity materials are not published here.
