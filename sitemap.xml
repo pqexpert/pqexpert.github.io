@@ -4,8 +4,9 @@
   <url><loc>https://pqexpert.io/about.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://pqexpert.io/capabilities.html</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://pqexpert.io/work.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://pqexpert.io/writing.html</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://pqexpert.io/writing.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://pqexpert.io/rsc.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://pqexpert.io/career.html</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://pqexpert.io/provenance.html</loc><priority>0.75</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://pqexpert.io/contact.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 </urlset>
