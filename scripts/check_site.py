@@ -10,11 +10,13 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_FILES = (
     "README.md",
+    "GOVERNANCE.md",
     "SECURITY.md",
     "CONTRIBUTING.md",
     "CNAME",
     "404.html",
     "index.html",
+    "principles.html",
     "robots.txt",
     "sitemap.xml",
 )
