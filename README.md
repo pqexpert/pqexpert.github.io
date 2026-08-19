@@ -8,12 +8,17 @@ Live site: https://pqexpert.io
 
 PQExpert.io gives hiring managers, technical reviewers, public-sector partners, and policy audiences a fast route to verified cybersecurity, infrastructure, systems-resilience, and national-security work.
 
-The site follows four rules:
+The site follows five rules:
 
-1. Evidence before hype.
-2. Verified work, development work, and research direction remain visibly distinct.
-3. Public pages use the Josh Allen professional identity.
-4. Protected identity, job-search, clearance-related, contact-intelligence, client, and secret data do not belong in this repository.
+1. Service before status.
+2. Evidence before hype.
+3. Verified work, development work, and research direction remain visibly distinct.
+4. Public pages use the Josh Allen professional identity.
+5. Protected identity, job-search, clearance-related, contact-intelligence, client, secret, private spiritual-practice, and health data do not belong in this repository.
+
+## Public operating charter
+
+The portfolio is governed by [GOVERNANCE.md](GOVERNANCE.md) and the public [Operating Principles](principles.html) page. Public doctrine emphasizes human dignity, safety, stewardship, fairness, sustainable execution, learning, and beneficial outcomes while keeping private spiritual and health material out of the public proof surface.
 
 ## Site architecture
 
@@ -26,6 +31,7 @@ The site follows four rules:
 - `rsc.html`: concise company context
 - `engage.html`: conversation routing
 - `contact.html`: contact options
+- `principles.html`: public operating principles
 - `provenance.html`: public evidence and claim provenance
 - `assets/`: styles, scripts, and public media
 
@@ -55,19 +61,21 @@ Every material public claim should answer:
 - What changed?
 - What evidence is public-safe?
 - Is the work verified, in development, or research direction?
+- Does the claim support useful service without sacrificing safety, dignity, or evidentiary discipline?
 
 A roadmap item or planned repository is not implementation evidence. A course topic is not equivalent to professional experience. No page may imply an active clearance, customer, partnership, patent, production deployment, or institutional adoption without governed evidence.
 
 ## Change workflow
 
 1. Confirm the claim against the governed source.
-2. Keep protected information out of the repository and commit history.
-3. Update the relevant page and provenance entry together.
-4. Run `python scripts/check_site.py`.
-5. Review the rendered site on desktop and mobile.
-6. Publish only after links, claims, and maturity labels are correct.
+2. Check the change against `GOVERNANCE.md` and the public operating principles.
+3. Keep protected information out of the repository and commit history.
+4. Update the relevant page and provenance entry together.
+5. Run `python scripts/check_site.py`.
+6. Review the rendered site on desktop and mobile.
+7. Publish only after links, claims, maturity labels, and public/private boundaries are correct.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
+See [CONTRIBUTING.md](CONTRIBUTING.md), [GOVERNANCE.md](GOVERNANCE.md), and [SECURITY.md](SECURITY.md).
 
 ## Public implementation roadmap
 
