@@ -5,6 +5,7 @@ from __future__ import annotations
 
 from html.parser import HTMLParser
 from pathlib import Path
+import re
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -29,6 +30,36 @@ HTML_REQUIREMENTS = ("<title", 'name="description"', "<html")
 SKIP_SCHEMES = ("http", "https", "mailto", "tel", "javascript", "data")
 FORBIDDEN_PUBLIC_ROUTING = (
     "restoration-mt.com",
+)
+
+PUBLIC_TEXT_GLOBS = (
+    "*.html",
+    "assets/js/*.js",
+    "assets/provenance/*",
+    "docs/PUBLIC_*.md",
+)
+FORBIDDEN_PUBLIC_MARKERS = (
+    "Jonathan Denning",
+    "Fungible-MT",
+    "Fungible-RD",
+    "jodennin@",
+    "infosecdenning@",
+    "restorationgroup@pm.me",
+    "mailto:",
+    "protected-identity",
+    "identityReveal",
+    "atob(",
+    "Washington, DC",
+    "Houston, TX",
+    "orcid.org",
+    "0009-0006-8647-2720",
+)
+PHONE_PATTERN = re.compile(
+    r"(?<!\d)(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4}(?!\d)"
+)
+EMAIL_PATTERN = re.compile(
+    r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b",
+    re.IGNORECASE,
 )
 
 
@@ -97,6 +128,47 @@ def main() -> int:
             if not target_exists(html_file, reference):
                 errors.append(
                     f"{html_file.name}: unresolved {tag} reference {reference!r}"
+                )
+
+    for pattern in PUBLIC_TEXT_GLOBS:
+        for public_file in sorted(ROOT.glob(pattern)):
+            if not public_file.is_file():
+                continue
+            text = public_file.read_text(encoding="utf-8")
+            lowered = text.lower()
+
+            for marker in FORBIDDEN_PUBLIC_MARKERS:
+                if marker.lower() in lowered:
+                    errors.append(
+                        f"{public_file.relative_to(ROOT)}: forbidden public PII marker {marker!r}"
+                    )
+
+            for email in EMAIL_PATTERN.findall(text):
+                if not email.lower().endswith("@example.com"):
+                    errors.append(
+                        f"{public_file.relative_to(ROOT)}: public email address {email!r}"
+                    )
+
+            for phone in PHONE_PATTERN.findall(text):
+                errors.append(
+                    f"{public_file.relative_to(ROOT)}: public phone number {phone!r}"
+                )
+
+    for image_relative in ("assets/img/headshot.jpg", "assets/img/og-image.jpg"):
+        image_path = ROOT / image_relative
+        if not image_path.exists():
+            errors.append(f"missing public image: {image_relative}")
+            continue
+
+        image_bytes = image_path.read_bytes()
+        if not image_bytes.startswith(b"\xff\xd8\xff"):
+            errors.append(f"{image_relative}: expected metadata-stripped JPEG")
+
+        lowered_bytes = image_bytes.lower()
+        for marker in (b"exif", b"<x:xmpmeta", b"photoshop", b"raw profile type iptc"):
+            if marker in lowered_bytes:
+                errors.append(
+                    f"{image_relative}: embedded metadata marker {marker.decode('ascii')!r}"
                 )
 
     if errors:

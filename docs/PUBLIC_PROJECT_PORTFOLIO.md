@@ -14,7 +14,7 @@ This is the public-safe project map for the active engineering estate. It is a *
 | RSC Operations Console | Internal governed command and observability surface for state, verification, normalized ingestion, and execution visibility | Operator Layer / In Development |
 | BridgeGHL | Controlled CRM bridge using dry-run, explicit execute, server-side credential isolation, and audit logging | In Development |
 | PT toolkit | Private penetration-testing and security-analysis tooling constrained by authorization, scope, evidence integrity, privacy, and least-impact execution | In Development / Private |
-| Fungible-RD MVP Orchestrator | Integration hub for shared contracts, portfolio topology, delta propagation, verification, migration, and orchestration boundaries | Integration Hub / In Development |
+| Private Integration Orchestrator | Integration hub for shared contracts, portfolio topology, delta propagation, verification, migration, and orchestration boundaries | Integration Hub / In Development |
 
 ## Promotion rule
 
@@ -55,3 +55,4 @@ The portfolio is not the public menu by itself. External conversations are route
 - hiring / embedded operator conversations.
 
 The underlying program used for a scoped engagement is selected after the need, authorization, risk, and evidence requirements are understood.
+
