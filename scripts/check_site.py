@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check required governance files and local references in the static site."""
+"""Check required governance files, public routing, and local references."""
 
 from __future__ import annotations
 
@@ -19,9 +19,17 @@ REQUIRED_FILES = (
     "principles.html",
     "robots.txt",
     "sitemap.xml",
+    "docs/PUBLIC_SYSTEM_ARCHITECTURE.md",
+    "docs/PUBLIC_PROJECT_PORTFOLIO.md",
+    "docs/CLIENT_ROUTING.md",
+    "docs/PUBLIC_EVIDENCE_MAP.md",
+    "docs/DEPLOYMENT_RECOVERY.md",
 )
 HTML_REQUIREMENTS = ("<title", 'name="description"', "<html")
 SKIP_SCHEMES = ("http", "https", "mailto", "tel", "javascript", "data")
+FORBIDDEN_PUBLIC_ROUTING = (
+    "restoration-mt.com",
+)
 
 
 class ReferenceParser(HTMLParser):
@@ -76,6 +84,13 @@ def main() -> int:
             if marker not in lowered:
                 errors.append(f"{html_file.name}: missing {marker}")
 
+        for forbidden in FORBIDDEN_PUBLIC_ROUTING:
+            if forbidden.lower() in lowered:
+                errors.append(
+                    f"{html_file.name}: forbidden public routing reference {forbidden!r}; "
+                    "keep the client journey on PQExpert and route RSC internally"
+                )
+
         parser = ReferenceParser()
         parser.feed(text)
         for tag, reference in parser.references:
@@ -90,7 +105,10 @@ def main() -> int:
             print(f"- {error}")
         return 1
 
-    print(f"Site quality check passed for {len(html_files)} HTML files.")
+    print(
+        f"Site quality check passed for {len(html_files)} HTML files; "
+        "required governance/docs are present and public routing guardrails passed."
+    )
     return 0
 
 

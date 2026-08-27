@@ -20,6 +20,9 @@ See:
 - [`docs/PUBLIC_SYSTEM_ARCHITECTURE.md`](docs/PUBLIC_SYSTEM_ARCHITECTURE.md)
 - [`docs/PUBLIC_PROJECT_PORTFOLIO.md`](docs/PUBLIC_PROJECT_PORTFOLIO.md)
 - [`docs/CLIENT_ROUTING.md`](docs/CLIENT_ROUTING.md)
+- [`docs/PUBLIC_EVIDENCE_MAP.md`](docs/PUBLIC_EVIDENCE_MAP.md)
+- [`docs/DEPLOYMENT_RECOVERY.md`](docs/DEPLOYMENT_RECOVERY.md)
+- [`THREAT_MODEL.md`](THREAT_MODEL.md)
 - [`GOVERNANCE.md`](GOVERNANCE.md)
 
 ## Purpose
@@ -48,7 +51,8 @@ The site follows six rules:
 - `contact.html`: canonical public contact route
 - `principles.html`: public operating principles
 - `provenance.html`: public evidence and claim provenance
-- `docs/`: public-safe architecture, project, and routing documentation
+- `docs/`: public-safe architecture, project, routing, evidence, deployment, and recovery documentation
+- `THREAT_MODEL.md`: public-surface threat model and residual-risk register
 - `assets/`: styles, scripts, and public media
 
 ## Public project model
@@ -123,7 +127,7 @@ A roadmap item or planned repository is not implementation evidence. A course to
 7. Review the rendered site on desktop and mobile.
 8. Publish only after links, claims, maturity labels, routing, and public/private boundaries are correct.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md), [GOVERNANCE.md](GOVERNANCE.md), and [SECURITY.md](SECURITY.md).
+See [CONTRIBUTING.md](CONTRIBUTING.md), [GOVERNANCE.md](GOVERNANCE.md), [SECURITY.md](SECURITY.md), [THREAT_MODEL.md](THREAT_MODEL.md), and [docs/DEPLOYMENT_RECOVERY.md](docs/DEPLOYMENT_RECOVERY.md).
 
 ## Public implementation roadmap
 
