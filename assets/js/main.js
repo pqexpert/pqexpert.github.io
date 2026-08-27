@@ -26,7 +26,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 
 // --- Site-wide operating-principles route ---
 // Every public page gets a durable path to the public operating charter without
-// exposing private spiritual, health, protected-identity, or other sensitive context.
+// exposing private spiritual, health, identity, or other sensitive context.
 document.querySelectorAll('.footer-links').forEach(footerLinks => {
   const hasPrinciples = Array.from(footerLinks.querySelectorAll('a')).some(link => {
     const path = new URL(link.href, window.location.origin).pathname;
@@ -40,26 +40,3 @@ document.querySelectorAll('.footer-links').forEach(footerLinks => {
   }
 });
 
-// --- Protected identity rendering ---
-// Names rendered at runtime via JS only — never present as plain text in HTML.
-// Prevents indexing by crawlers, aggregators, and scrapers.
-document.querySelectorAll('.protected-identity').forEach(function(el) {
-  try { el.textContent = atob(el.getAttribute('data-n')); }
-  catch (e) { /* silently fail */ }
-});
-
-// --- Identity reveal toggle ---
-(function() {
-  const btn   = document.getElementById('identityReveal');
-  const panel = document.getElementById('identityRevealPanel');
-  if (!btn || !panel) return;
-
-  btn.addEventListener('click', function() {
-    const open = this.getAttribute('aria-expanded') === 'true';
-    this.setAttribute('aria-expanded', String(!open));
-    panel.hidden = open;
-    this.classList.toggle('is-open', !open);
-    const label = this.querySelector('.identity-reveal-label');
-    if (label) label.textContent = open ? 'Legal identity' : 'Close';
-  });
-})();
