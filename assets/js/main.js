@@ -40,3 +40,23 @@ document.querySelectorAll('.footer-links').forEach(footerLinks => {
   }
 });
 
+
+// Carry only public campaign labels through same-site navigation; no persistent storage.
+const campaignParams = new URLSearchParams(window.location.search);
+document.querySelectorAll('a[href]').forEach(link => {
+  const destination = new URL(link.getAttribute('href'), window.location.origin);
+  if (destination.origin !== window.location.origin || destination.searchParams.get('journey') === 'private' || campaignParams.get('journey') === 'private') return;
+  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(key => {
+    const value = campaignParams.get(key);
+    if (value && /^[a-zA-Z0-9_.-]{1,80}$/.test(value) && !destination.searchParams.has(key)) destination.searchParams.set(key, value);
+  });
+  link.href = destination.pathname + destination.search + destination.hash;
+});
+document.querySelectorAll('.footer-links').forEach(links => {
+  if (!links.querySelector('a[href="/privacy.html"]')) {
+    const link = document.createElement('a');
+    link.href = '/privacy.html';
+    link.textContent = 'Privacy';
+    links.append(link);
+  }
+});
