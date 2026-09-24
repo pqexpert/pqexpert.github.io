@@ -82,12 +82,13 @@ p { margin-bottom: 16px; color: #c8d0df; }
 @media (max-width: 768px) {
   .nav-hamburger { display: flex; }
   .nav-links {
-    position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
+    display: none; position: fixed; top: 64px; left: 0; right: 0;
+    height: calc(100dvh - 64px); overflow-y: auto;
     background: var(--bg); flex-direction: column; align-items: center;
     justify-content: center; gap: 32px;
-    transform: translateX(100%); transition: transform 0.3s ease; z-index: 99;
+    z-index: 99;
   }
-  .nav-links.open { transform: translateX(0); }
+  .nav-links.open { display: flex; }
   .nav-links a { color: var(--text); font-size: 1.1rem; }
 }
 
