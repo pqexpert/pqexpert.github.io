@@ -74,7 +74,7 @@ Social Planner requires an actual supported account connection for publishing. I
 
 At every meaningful touch, retain: purpose, source pointer, native record/thread, responsible owner, state, last meaningful inbound/outbound event, promised next action, agreed date and stop/suppression state. Do not create a new task for every short thank-you when one open task already covers the relationship. Native conversation unread state remains visible.
 
-Josh responds personally and agrees the next step. Operators prepare context, preserve thread continuity, reconcile overdue or failed handoffs, and support delivery. An acknowledgment, delivered email, read receipt and personal response are distinct events. Customer replies can support native filtered reply workflows; never interpret every reply as permission for more marketing. See [HighLevel Customer Replied trigger](https://help.gohighlevel.com/support/solutions/articles/155000002677-workflow-trigger-customer-replied).
+Josh responds personally and agrees the next step. Operators prepare context, preserve thread continuity, reconcile overdue or failed handoffs, and support delivery. An acknowledgment, delivered email, read receipt and personal response are distinct events. The published PQExpert Incoming Reply Alert listens only to Email replies associated with the PQExpert Inquiry Acknowledgment workflow. It sends Josh an internal app notification linked to the conversation, with no copied reply text, follower notification or new task. Re-entry is enabled and unread state is preserved. This does not claim coverage of every email, phone or social channel; the owning operator still reconciles its native queue. Never interpret a reply as permission for more marketing. See [HighLevel Customer Replied trigger](https://help.gohighlevel.com/support/solutions/articles/155000002677-workflow-trigger-customer-replied).
 
 Distiller sifts and sorts changed, permitted operational evidence from the existing owners. Prioritize explicit customer commitments and deadlines, delivery/support failures, unanswered requests, source corrections, and capacity conflicts. Essentialize to one next action, owner, due date, source pointer and actual exception. Never move private inquiry contents, manuscripts, personnel or customer records into shared briefs or public repositories. Keep duplicates linked rather than amplifying them.
 
@@ -82,11 +82,11 @@ Silence is green only after a current successful check finds no due action or ex
 
 ## Evidence and measurement
 
-Current setup: four saved native forms with conversation creation, native family handoff, and purpose-specific public routes. Configuration is not an end-to-end customer receipt. First natural submissions on each new form still supply the form → task → acknowledgment → reply evidence; do not manufacture leads to improve counts.
+Current setup: four saved native forms with conversation creation, published family handoff and acknowledgment workflows, a scoped incoming-reply app alert, and deployed purpose-specific public routes. Configuration is not an end-to-end customer receipt. First natural submissions on each new form still supply the form → task → acknowledgment → reply evidence; do not manufacture leads to improve counts.
 
 Measure where native evidence is available: inquiries by form/source; delivered/skipped/failed acknowledgments; time to personal response; unanswered requests; agreed next steps; qualified opportunities; closed/lost/declined reasons; actual delivery outcomes; agreed care dates; continuing relationships. Visitor-to-inquiry conversion needs a valid visitor denominator; no denominator means no conversion-rate claim. Email opens are weak engagement evidence, not a customer outcome.
 
-The previous RSC readiness inquiry/reply receipts remain evidence for that route only. They do not prove the new family forms or social routes have completed real customer journeys. Root/www outreach cutover remains its separately tasked release operation.
+The previous RSC readiness inquiry/reply receipts remain evidence for that route only. They do not prove the new family forms or social routes have completed real customer journeys. Root/www outreach cutover and recovery remain their separately tasked operations, with current status in the owning private record. The PQExpert family site release is independent.
 
 ## Recovery
 
