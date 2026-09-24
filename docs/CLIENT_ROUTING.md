@@ -50,3 +50,7 @@ Keep the public proof and intake route on PQExpert unless another authoritative 
 ## Evidence rule
 
 Never route a conversation by implying maturity that the evidence does not support. If the relevant capability is in development, say so and scope the conversation around the real current state: research, assessment, pilot, architecture, prototype, briefing, or partner exploration.
+
+## Implemented family entry points
+
+The full discovery-to-retention contract, including author/editorial, private, hiring, social, publisher, firm collection, and Distiller signals, is maintained in [FAMILY_JOURNEYS.md](FAMILY_JOURNEYS.md). The contact surface now uses four native HighLevel forms instead of the former Formspree route. Public purpose is not inferred commercial qualification or marketing consent.

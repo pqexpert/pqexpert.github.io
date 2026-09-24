@@ -439,3 +439,19 @@ p { margin-bottom: 16px; color: #c8d0df; }
   background: var(--accent);
   border: 2px solid var(--bg);
 }
+
+/* Purpose-led intake, with a usable provider fallback. */
+[hidden] { display: none !important; }
+.journey-section { padding: 36px 0; }
+.journey-card { display: flex; flex-direction: column; align-items: flex-start; }
+.journey-card h2 { font-size: 1.35rem; }
+.journey-card .btn { margin-top: auto; white-space: normal; text-align: center; }
+.journey-selected { border-color: var(--accent); }
+.journey-intro { max-width: 780px; }
+.journey-note { color: var(--text-muted); margin-top: 24px; }
+.inquiry-embed { max-width: 860px; margin: 24px 0; background: #fff; border-radius: 8px; }
+.inquiry-embed iframe { display: block; width: 100%; min-height: 1080px; border: 0; border-radius: 8px; }
+#inquiry { scroll-margin-top: 100px; }
+.footer-links { flex-wrap: wrap; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
