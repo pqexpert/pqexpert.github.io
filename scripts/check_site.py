@@ -28,6 +28,13 @@ REQUIRED_FILES = (
 )
 HTML_REQUIREMENTS = ("<title", 'name="description"', "<html")
 SKIP_SCHEMES = ("http", "https", "mailto", "tel", "javascript", "data")
+REQUIRED_ENGAGEMENT_ATTRIBUTION = (
+    "cyber-resilience",
+    "post-quantum-readiness",
+    "security-operations",
+    "executive-briefing",
+    "prime-lab-research",
+)
 FORBIDDEN_PUBLIC_ROUTING = (
     "restoration-mt.com",
 )
@@ -107,6 +114,15 @@ def main() -> int:
     html_files = sorted(ROOT.glob("*.html"))
     if not html_files:
         errors.append("no root HTML files found")
+
+    engage_path = ROOT / "engage.html"
+    if engage_path.exists():
+        engage_text = engage_path.read_text(encoding="utf-8")
+        for source in REQUIRED_ENGAGEMENT_ATTRIBUTION:
+            if f"utm_content={source}" not in engage_text:
+                errors.append(
+                    f"engage.html: missing bounded attribution for {source!r}"
+                )
 
     for html_file in html_files:
         text = html_file.read_text(encoding="utf-8")
