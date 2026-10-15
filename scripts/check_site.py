@@ -35,6 +35,12 @@ REQUIRED_ENGAGEMENT_ATTRIBUTION = (
     "executive-briefing",
     "prime-lab-research",
 )
+REQUIRED_CAREER_ATTRIBUTION = (
+    "career-nav",
+    "career-hero",
+    "career-bottom",
+    "career-footer",
+)
 FORBIDDEN_PUBLIC_ROUTING = (
     "restoration-mt.com",
 )
@@ -122,6 +128,15 @@ def main() -> int:
             if f"utm_content={source}" not in engage_text:
                 errors.append(
                     f"engage.html: missing bounded attribution for {source!r}"
+                )
+
+    career_path = ROOT / "career.html"
+    if career_path.exists():
+        career_text = career_path.read_text(encoding="utf-8")
+        for source in REQUIRED_CAREER_ATTRIBUTION:
+            if f"utm_content={source}" not in career_text:
+                errors.append(
+                    f"career.html: missing bounded attribution for {source!r}"
                 )
 
     for html_file in html_files:
