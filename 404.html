@@ -16,14 +16,49 @@
       <div class="container">
         <span class="section-label">PQExpert.io</span>
         <h1>This page has moved.</h1>
-        <p>PQExpert is the current public client, professional, evidence, and engagement surface. Use the current routes below.</p>
+        <p id="route-status">PQExpert is the current public client, professional, evidence, and engagement surface. Use the current routes below.</p>
         <div class="btn-group">
-          <a href="/engage.html" class="btn btn-primary">Choose Engagement Path</a>
+          <a id="route-primary" href="/engage.html" class="btn btn-primary">Choose Engagement Path</a>
           <a href="/rsc.html" class="btn btn-outline">RSC Context</a>
           <a href="/" class="btn btn-outline">Home</a>
         </div>
       </div>
     </section>
   </main>
+  <script>
+    (() => {
+      const routes = Object.freeze({
+        "cyber-resilience": { name: "Cyber Resilience", path: "/contact.html?journey=professional&utm_source=pqexpert&utm_medium=owned_site&utm_campaign=launch17&utm_content=cyber-resilience#inquiry", label: "Continue to Cyber Resilience" },
+        "post-quantum-readiness": { name: "Post-Quantum Readiness", path: "/contact.html?journey=professional&utm_source=pqexpert&utm_medium=owned_site&utm_campaign=launch17&utm_content=post-quantum-readiness#inquiry", label: "Continue to Post-Quantum Readiness" },
+        "security-operations": { name: "Security Operations", path: "/contact.html?journey=professional&utm_source=pqexpert&utm_medium=owned_site&utm_campaign=launch17&utm_content=security-operations#inquiry", label: "Continue to Security Operations" },
+        "teaming-and-suppliers": { name: "Teaming and Suppliers", path: "/contact.html?journey=professional&utm_source=pqexpert&utm_medium=owned_site&utm_campaign=launch17&utm_content=teaming-and-suppliers#inquiry", label: "Continue to Teaming and Suppliers" },
+        "research-collaboration": { name: "Research Collaboration", path: "/contact.html?journey=professional&utm_source=pqexpert&utm_medium=owned_site&utm_campaign=launch17&utm_content=research-collaboration#inquiry", label: "Continue to Research Collaboration" },
+        "executive-briefing": { name: "Executive Briefing", path: "/contact.html?journey=professional&utm_source=pqexpert&utm_medium=owned_site&utm_campaign=launch17&utm_content=executive-briefing#inquiry", label: "Continue to Executive Briefing" },
+        "hire-josh": { name: "Hire or Recruit Josh", path: "/career.html?utm_source=pqexpert&utm_medium=owned_site&utm_campaign=launch17&utm_content=hire-josh", label: "Continue to Career Materials" },
+        "ask-the-author": { name: "Ask the Author", path: "/contact.html?journey=author&utm_source=pqexpert&utm_medium=owned_site&utm_campaign=launch17&utm_content=ask-the-author#inquiry", label: "Continue to Ask the Author" },
+        "editorial-and-rights": { name: "Editorial and Rights", path: "/contact.html?journey=author&utm_source=pqexpert&utm_medium=owned_site&utm_campaign=launch17&utm_content=editorial-and-rights#inquiry", label: "Continue to Editorial and Rights" },
+        "speaking-and-interviews": { name: "Speaking and Interviews", path: "/contact.html?journey=author&utm_source=pqexpert&utm_medium=owned_site&utm_campaign=launch17&utm_content=speaking-and-interviews#inquiry", label: "Continue to Speaking and Interviews" },
+        "private-contact": { name: "Private Contact", path: "/contact.html?journey=private#inquiry", label: "Continue Privately" },
+        "professional-verification": { name: "Professional Verification", path: "/contact.html?journey=professional&utm_source=pqexpert&utm_medium=owned_site&utm_campaign=launch17&utm_content=professional-verification#inquiry", label: "Continue to Professional Verification" },
+        "customer-support": { name: "Customer Support", path: "/contact.html?journey=professional&utm_source=pqexpert&utm_medium=owned_site&utm_campaign=launch17&utm_content=customer-support#inquiry", label: "Continue to Customer Support" },
+        "cmmc-readiness": { name: "CMMC Readiness", path: "/contact.html?journey=readiness&utm_source=pqexpert&utm_medium=owned_site&utm_campaign=launch17&utm_content=cmmc-readiness#inquiry", label: "Continue to CMMC Readiness" },
+        "rsc-partners": { name: "RSC Partners", path: "/contact.html?journey=partner&utm_source=pqexpert&utm_medium=owned_site&utm_campaign=launch17&utm_content=rsc-partners#inquiry", label: "Continue to RSC Partners" },
+        "restoration-ledger": { name: "The Restoration Ledger", path: "/contact.html?journey=author&utm_source=pqexpert&utm_medium=owned_site&utm_campaign=launch17&utm_content=restoration-ledger#inquiry", label: "Continue to The Restoration Ledger" },
+        "introductions": { name: "Introductions", path: "/contact.html?journey=professional&utm_source=pqexpert&utm_medium=owned_site&utm_campaign=launch17&utm_content=introductions#inquiry", label: "Continue to Introductions" }
+      });
+
+      const slug = window.location.pathname.replace(/^\/+|\/+$/g, "").toLowerCase();
+      const route = routes[slug];
+      if (!route) return;
+
+      document.title = `${route.name} Moved | PQExpert.io`;
+      document.querySelector("h1").textContent = `${route.name} has moved.`;
+      document.getElementById("route-status").textContent =
+        "Continue to the current PQExpert intake. Your route choice will be preserved; submitting an inquiry does not subscribe you to marketing.";
+      const primary = document.getElementById("route-primary");
+      primary.href = route.path;
+      primary.textContent = route.label;
+    })();
+  </script>
 </body>
 </html>
