@@ -48,6 +48,7 @@
       });
 
       const slug = window.location.pathname.replace(/^\/+|\/+$/g, "").toLowerCase();
+      if (!Object.prototype.hasOwnProperty.call(routes, slug)) return;
       const route = routes[slug];
       if (!route) return;
 
