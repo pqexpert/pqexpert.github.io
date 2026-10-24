@@ -41,6 +41,25 @@ REQUIRED_CAREER_ATTRIBUTION = (
     "career-bottom",
     "career-footer",
 )
+LEGACY_LAUNCH17_ROUTES = (
+    "cyber-resilience",
+    "post-quantum-readiness",
+    "security-operations",
+    "teaming-and-suppliers",
+    "research-collaboration",
+    "executive-briefing",
+    "hire-josh",
+    "ask-the-author",
+    "editorial-and-rights",
+    "speaking-and-interviews",
+    "private-contact",
+    "professional-verification",
+    "customer-support",
+    "cmmc-readiness",
+    "rsc-partners",
+    "restoration-ledger",
+    "introductions",
+)
 FORBIDDEN_PUBLIC_ROUTING = (
     "restoration-mt.com",
 )
@@ -138,6 +157,27 @@ def main() -> int:
                 errors.append(
                     f"career.html: missing bounded attribution for {source!r}"
                 )
+
+    moved_path = ROOT / "404.html"
+    if moved_path.exists():
+        moved_text = moved_path.read_text(encoding="utf-8")
+        for route in LEGACY_LAUNCH17_ROUTES:
+            if f'"{route}"' not in moved_text:
+                errors.append(
+                    f"404.html: missing moved-route recovery for {route!r}"
+                )
+            if route != "private-contact" and f"utm_content={route}" not in moved_text:
+                errors.append(
+                    f"404.html: missing bounded moved-route attribution for {route!r}"
+                )
+        if "utm_content=private-contact" in moved_text:
+            errors.append(
+                "404.html: private-contact must remain free of campaign attribution"
+            )
+        if '"private-contact": { name: "Private Contact", path: "/contact.html?journey=private#inquiry"' not in moved_text:
+            errors.append(
+                "404.html: private-contact recovery must use the private journey without attribution"
+            )
 
     for html_file in html_files:
         text = html_file.read_text(encoding="utf-8")
