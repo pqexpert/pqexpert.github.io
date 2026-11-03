@@ -54,6 +54,8 @@ def main() -> int:
         return 1
 
     for relative in PUBLIC_FILES:
+        if relative == ".nojekyll":
+            continue  # Generated in the artifact; the source root needs Jekyll exclusions.
         source = ROOT / relative
         if source.is_symlink() or not source.is_file():
             print(f"Public site input is missing or a symlink: {relative}")
@@ -63,7 +65,10 @@ def main() -> int:
     for relative in PUBLIC_FILES:
         target = destination / relative
         target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(ROOT / relative, target)
+        if relative == ".nojekyll":
+            target.write_bytes(b"")
+        else:
+            shutil.copyfile(ROOT / relative, target)
 
     # Check the staged site, so a link to an excluded source file fails the build.
     check_site.ROOT = destination

@@ -1,0 +1,31 @@
+# Defense in depth if GitHub Pages still builds the main branch root.
+# The preferred deployment uses scripts/build_public_site.py instead.
+# Keep the source root free of .nojekyll so these exclusions take effect.
+theme: null
+plugins: []
+exclude:
+  - .github/
+  - .gitignore
+  - _config.yml
+  - AGENTS.md
+  - CONTRIBUTING.md
+  - GOVERNANCE.md
+  - PQEXPERT-ESTATE-OPERATING-POINTER.md
+  - README.md
+  - SECURITY.md
+  - THREAT_MODEL.md
+  - deploy.sh
+  - docs/
+  - portfolio/
+  - scripts/
+  - vercel.json
+  - assets/provenance/.publish-anchor
+  - public-site/
+  - _site/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/

@@ -17,6 +17,7 @@ REQUIRED_FILES = (
     "GOVERNANCE.md",
     "SECURITY.md",
     "CONTRIBUTING.md",
+    "_config.yml",
     "CNAME",
     "404.html",
     "index.html",
@@ -173,6 +174,11 @@ def main() -> int:
     for relative in REQUIRED_FILES:
         if not (ROOT / relative).exists():
             errors.append(f"missing required file: {relative}")
+
+    if (ROOT / ".nojekyll").exists():
+        errors.append(
+            "root .nojekyll bypasses legacy publication exclusions; generate it only in the public artifact"
+        )
 
     html_files = sorted(ROOT.glob("*.html"))
     if not html_files:

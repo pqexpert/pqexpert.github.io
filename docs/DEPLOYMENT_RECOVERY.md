@@ -10,13 +10,15 @@ The goal is simple: a future operator should be able to restore the public front
 
 - Repository: `pqexpert/pqexpert.github.io`
 - Production source branch: `main`
-- Site source: repository root
+- Website source: reviewed static files in the repository root and assets directories
+- Preferred publication: the reviewed artifact from `.github/workflows/pages.yml` (**Publish public site**)
+- Legacy branch/root fallback: Jekyll with `_config.yml` exclusions and no root `.nojekyll`
 - Custom-domain declaration: `CNAME`
 - Expected custom domain: `pqexpert.io`
 - Static validation: `.github/workflows/site-quality.yml`
 - Local validation: `python scripts/check_site.py`
 
-GitHub repository state is the durable source for the static site. GitHub Pages serves the published copy. The published copy may lag the merge briefly while Pages rebuilds or caches expire.
+GitHub repository state is the durable source for the static site. GitHub Pages serves the published copy. The published copy may lag the merge briefly while Pages rebuilds or caches expire. Confirm the active Pages build source through repository settings; a successful custom workflow alone does not prove that legacy branch publication has been disabled. See [public artifact deployment](PUBLIC_ARTIFACT_DEPLOYMENT.md).
 
 ## Normal publish path
 
@@ -26,7 +28,8 @@ GitHub repository state is the durable source for the static site. GitHub Pages 
 4. Review public/private boundaries, maturity labels, navigation, contact routing, and local references.
 5. Merge only after the quality check is green.
 6. Confirm the `main` push quality run is green.
-7. Verify the live site after Pages propagation.
+7. Confirm **Publish public site** builds and deploys the intended commit, then verify the live site after Pages propagation.
+8. Confirm excluded repository files return HTTP 404, including `/scripts/check_site.py`, `/deploy.sh`, `/GOVERNANCE.md`, and `/docs/FAMILY_JOURNEYS.md`. If branch publication remains active, verify the last legacy deployment as well.
 
 Do **not** use a force push as the normal deployment mechanism.
 
@@ -34,12 +37,13 @@ Do **not** use a force push as the normal deployment mechanism.
 
 ```bash
 python scripts/check_site.py
+python scripts/build_public_site.py /tmp/pqexpert-public-site-review
 ```
 
 For visual review:
 
 ```bash
-python -m http.server 8000
+python -m http.server --directory /tmp/pqexpert-public-site-review 8000
 ```
 
 Then open `http://localhost:8000`.
@@ -51,6 +55,9 @@ Before treating a release as healthy, verify:
 - `main` contains the intended source;
 - `CNAME` still resolves to `pqexpert.io` as the repository declaration;
 - the `Site quality` workflow passes;
+- the deployed artifact contains only the reviewed website files;
+- any legacy branch/root build honors `_config.yml`; the source root has no `.nojekyll` file;
+- excluded repository files return HTTP 404 after the latest deployment;
 - the homepage describes PQExpert as the public client/professional front door;
 - client-facing navigation remains on PQExpert rather than sending readers to a separate RSC website;
 - contact and engagement routes work;
@@ -63,7 +70,7 @@ Before treating a release as healthy, verify:
 Use three independent checks when possible:
 
 1. **Source check** — inspect `main` and confirm the expected commit/file contents.
-2. **Automation check** — confirm the `Site quality` run for the production commit is green.
+2. **Automation check** — confirm `Site quality` and **Publish public site** succeed for the production commit; check whether a later legacy Pages deployment also ran.
 3. **Published-site check** — load `https://pqexpert.io` and verify the rendered copy reflects the production source after propagation.
 
 If source and automation are correct but the public site still shows an older copy, treat that as a deployment/cache propagation issue before rewriting source unnecessarily.
@@ -89,7 +96,7 @@ A safe rollback sequence is:
 If the repository source is healthy but `pqexpert.io` does not resolve correctly:
 
 1. Confirm the repository `CNAME` file contains `pqexpert.io`.
-2. Inspect the repository's GitHub Pages settings and confirm the production source is still `main` / repository root and the custom domain is still set.
+2. Inspect the repository's GitHub Pages settings and retain the custom domain. Prefer the **GitHub Actions** build source and the reviewed **Publish public site** artifact. Do not blindly restore `main` / repository-root publication: a necessary branch/root fallback must retain `_config.yml` exclusions and have no root `.nojekyll` file.
 3. Inspect the authoritative DNS provider for the current domain records. Do not guess or overwrite DNS from memory.
 4. Compare the live DNS configuration with GitHub Pages' current custom-domain guidance before making a change.
 5. Preserve HTTPS enforcement once GitHub reports the domain is correctly configured.
