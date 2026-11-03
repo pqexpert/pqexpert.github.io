@@ -93,6 +93,10 @@ Then review the rendered site on desktop and mobile.
 
 Public history should not contain private identity records, home addresses, personal phone numbers, credentials, secrets, client data, health information, private spiritual-practice material, clearance-related information, or sensitive infrastructure details.
 
+The local quality check scans tracked source files and new, non-ignored files, including scripts and documentation, for contact data and common credential formats. Findings identify the file and category without printing matched values. These checks supplement review; they do not certify all content or Git history as free of sensitive information.
+
+Optional identity-specific checks can be supplied through `PQEXPERT_PRIVATE_MARKERS_FILE`, pointing to a UTF-8 JSON list of strings stored **outside this repository**. Do not commit that file or its contents, put it in the public site, or print it in build logs. The default public check contains no personal identity denylist. A private check does not replace review of earlier commits, branches, pull requests, logs, or published copies.
+
 Security concerns can be reported through [`SECURITY.md`](SECURITY.md).
 
 ## What success looks like

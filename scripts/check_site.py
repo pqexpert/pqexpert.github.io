@@ -5,7 +5,10 @@ from __future__ import annotations
 
 from html.parser import HTMLParser
 from pathlib import Path
+import json
+import os
 import re
+import subprocess
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -71,20 +74,11 @@ PUBLIC_TEXT_GLOBS = (
     "docs/PUBLIC_*.md",
 )
 FORBIDDEN_PUBLIC_MARKERS = (
-    "Jonathan Denning",
-    "Fungible-MT",
-    "Fungible-RD",
-    "jodennin@",
-    "infosecdenning@",
-    "restorationgroup@pm.me",
     "mailto:",
     "protected-identity",
     "identityReveal",
     "atob(",
-    "Washington, DC",
-    "Houston, TX",
     "orcid.org",
-    "0009-0006-8647-2720",
 )
 PHONE_PATTERN = re.compile(
     r"(?<!\d)(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4}(?!\d)"
@@ -93,6 +87,44 @@ EMAIL_PATTERN = re.compile(
     r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b",
     re.IGNORECASE,
 )
+CREDENTIAL_PATTERNS = (
+    re.compile(r"-----BEGIN (?:OPENSSH|RSA|EC|DSA|PGP)? ?PRIVATE KEY"),
+    re.compile(r"\b(?:gh[pousr]_[A-Za-z0-9]{36,}|github_pat_[A-Za-z0-9_]{50,})\b"),
+    re.compile(r"\bsk-(?:proj-|svcacct-)?[A-Za-z0-9_-]{32,}\b"),
+    re.compile(r"\b(?:AKIA|ASIA)[A-Z0-9]{16}\b"),
+    re.compile(r"\bxox[baprs]-[A-Za-z0-9-]{20,}\b"),
+)
+
+
+def private_markers() -> tuple[str, ...]:
+    """Load optional private checks without embedding identity data in source."""
+    configured = os.environ.get("PQEXPERT_PRIVATE_MARKERS_FILE")
+    if not configured:
+        return ()
+    try:
+        path = Path(configured).expanduser().resolve()
+        if path == ROOT or ROOT in path.parents:
+            raise ValueError("Private marker configuration must be outside the repository.")
+        values = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(values, list) or not values or not all(
+            isinstance(value, str) and value.strip() for value in values
+        ):
+            raise ValueError("Private marker configuration must be a nonempty JSON string list.")
+        return tuple(value.casefold() for value in values)
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        # Exception text can contain a private path or file contents.
+        raise ValueError("Private marker configuration could not be read safely.") from exc
+
+
+def source_files() -> list[Path]:
+    """Include repository source and new files, excluding Git-ignored local data."""
+    result = subprocess.run(
+        ["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+    )
+    return [ROOT / os.fsdecode(path) for path in sorted(set(result.stdout.split(b"\0"))) if path]
 
 
 class ReferenceParser(HTMLParser):
@@ -131,6 +163,12 @@ def target_exists(source: Path, reference: str) -> bool:
 
 def main() -> int:
     errors: list[str] = []
+    try:
+        protected_markers = private_markers()
+        public_sources = source_files()
+    except (ValueError, OSError, subprocess.CalledProcessError):
+        print("Site quality check failed: source inventory or private check configuration is invalid.")
+        return 1
 
     for relative in REQUIRED_FILES:
         if not (ROOT / relative).exists():
@@ -211,19 +249,35 @@ def main() -> int:
             for marker in FORBIDDEN_PUBLIC_MARKERS:
                 if marker.lower() in lowered:
                     errors.append(
-                        f"{public_file.relative_to(ROOT)}: forbidden public PII marker {marker!r}"
+                        f"{public_file.relative_to(ROOT)}: restricted public markup detected (value redacted)"
                     )
 
-            for email in EMAIL_PATTERN.findall(text):
-                if not email.lower().endswith("@example.com"):
-                    errors.append(
-                        f"{public_file.relative_to(ROOT)}: public email address {email!r}"
-                    )
+    # A public repository exposes scripts and documentation as well as web pages.
+    # Keep personal denylist values outside the checkout and redact all matches.
+    for public_file in public_sources:
+        relative = public_file.relative_to(ROOT)
+        if public_file.is_symlink():
+            errors.append(f"{relative}: symlink requires a separate publication review")
+            continue
+        if not public_file.is_file():
+            continue
+        try:
+            text = public_file.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            continue
+        except OSError:
+            errors.append(f"{relative}: source could not be checked")
+            continue
+        lowered = text.casefold()
 
-            for phone in PHONE_PATTERN.findall(text):
-                errors.append(
-                    f"{public_file.relative_to(ROOT)}: public phone number {phone!r}"
-                )
+        if any(marker in lowered for marker in protected_markers):
+            errors.append(f"{relative}: private marker detected (value redacted)")
+        if any(not email.lower().endswith("@example.com") for email in EMAIL_PATTERN.findall(text)):
+            errors.append(f"{relative}: public email address detected (value redacted)")
+        if PHONE_PATTERN.search(text):
+            errors.append(f"{relative}: public phone number detected (value redacted)")
+        if any(pattern.search(text) for pattern in CREDENTIAL_PATTERNS):
+            errors.append(f"{relative}: potential credential detected (value redacted)")
 
     for image_relative in ("assets/img/headshot.jpg", "assets/img/og-image.jpg"):
         image_path = ROOT / image_relative
