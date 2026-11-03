@@ -21,8 +21,8 @@ The builder refuses an existing output directory rather than deleting or reusing
 ## Activation
 
 1. Review the artifact and retain the current Pages settings for rollback.
-2. In repository Settings, open Pages and change the build source from **Deploy from a branch** to **GitHub Actions**. Keep the existing custom domain and HTTPS settings.
-3. Merge the reviewed workflow and builder into `main`, or manually run **Publish public site** on `main` if the workflow is already present.
+2. Publish the reviewed workflow and builder to `main` and verify their exact contents on that branch.
+3. In repository Settings, open Pages and change the build source from **Deploy from a branch** to **GitHub Actions**. Keep the existing custom domain and HTTPS settings, then run **Publish public site** on `main` if a deployment for the intended commit has not already succeeded.
 4. Verify the workflow's build and deploy jobs succeed for the intended commit. The `github-pages` environment should permit deployment from `main` only.
 5. Verify the homepage, About redirect, navigation, contact paths, images, and provenance downloads on the custom domain.
 6. Confirm `/scripts/check_site.py`, `/deploy.sh`, `/GOVERNANCE.md`, and `/docs/FAMILY_JOURNEYS.md` return a 404 response rather than their repository contents. The custom 404 recovery page may render for those URLs; inspect the status as well as the page.
@@ -31,7 +31,11 @@ The existing **Site quality** workflow remains available for pull requests. The 
 
 ## Other hosts
 
-Any other host connected to this repository has its own output-directory and deployment settings. Verify and configure that host separately to publish the same reviewed artifact; a GitHub Pages source change does not alter another provider's publication.
+Any other host connected to this repository has its own output-directory and deployment settings. A GitHub Pages source change does not alter another provider's publication.
+
+For the existing Vercel Git integration, `vercel.json` runs the source check and the same public-artifact builder, then serves only `public-site/`. It retains the static "Other" framework preset and does not create a project, change domains, add functions, change the plan, or modify paid build settings. The generated directory is Git-ignored.
+
+After the Git integration deploys the intended commit, confirm the production deployment is ready and repeat the public-file and excluded-file checks on its assigned domains. The source check expects a Git checkout, as provided by this existing Git deployment path; a source upload without Git metadata will fail that check and must not be treated as a tested deployment.
 
 ## Rollback
 
