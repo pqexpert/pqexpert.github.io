@@ -15,6 +15,7 @@ Live site: https://pqexpert.io
 
 - **Hiring or recruiting:** https://pqexpert.io/career.html
 - **Technical work and evidence:** https://pqexpert.io/work.html
+- **Local Fabric and CoOS architecture:** [public architecture and cutover record](docs/PUBLIC_SYSTEM_ARCHITECTURE.md#local-operation-and-coos--2026-11-11)
 - **Writing and policy analysis:** https://pqexpert.io/writing.html
 - **Commercial cybersecurity work:** https://pqexpert.io/rsc.html
 - **Conversation / collaboration:** https://pqexpert.io/contact.html
