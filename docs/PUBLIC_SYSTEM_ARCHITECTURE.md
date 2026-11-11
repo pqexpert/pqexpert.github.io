@@ -98,3 +98,7 @@ The November 11 engineering inspection observed active local chat/model services
 The next acceptance steps are durable DNS ownership, controlled resolver egress, explicit service grants, indexed denial/response evidence, verified recovery and useful local mission cycles. Public status remains **In Development** until the relevant evidence exists. No blanket “fully secure,” “fully autonomous,” compliance certification or customer-adoption claim is made.
 
 Public release notes should record what changed, the exact reviewed version, tests, observed outcome, limitations and rollback. Sensitive topology, credentials, customer data and private human context remain outside public documentation.
+
+### Deployment ownership
+
+GitHub Pages owns this public website. Automatic Vercel Git deployments are disabled in `vercel.json`; retained Vercel resources are not production authority. Reversing that setting requires an explicit hosting decision and verified domain/callback ownership.
