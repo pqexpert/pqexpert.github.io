@@ -95,10 +95,21 @@ DNS or DHCP denial alone does not prevent access by direct address. An encrypted
 
 The November 11 engineering inspection observed active local chat/model services, signed private-network membership, private service mappings and successful CRM bridge readback. It also found resolver ownership contention and a failed recovery upload. These are dated component observations, not a full security assessment or proof of complete autonomous operation.
 
-The next acceptance steps are durable DNS ownership, controlled resolver egress, explicit service grants, indexed denial/response evidence, verified recovery and useful local mission cycles. Public status remains **In Development** until the relevant evidence exists. No blanket “fully secure,” “fully autonomous,” compliance certification or customer-adoption claim is made.
+Subsequent November 11 checks verified DNS ownership repair, a fresh encrypted recovery upload, Google account/resource validation and native Calendar scheduling. These close specific component faults. The remaining acceptance steps are controlled resolver egress, explicit service grants, indexed denial/response evidence, a recovery restore rehearsal and useful local mission cycles. Public status remains **In Development** until the relevant evidence exists. No blanket “fully secure,” “fully autonomous,” compliance certification or customer-adoption claim is made.
 
 Public release notes should record what changed, the exact reviewed version, tests, observed outcome, limitations and rollback. Sensitive topology, credentials, customer data and private human context remain outside public documentation.
 
 ### Deployment ownership
 
 GitHub Pages owns this public website. Automatic Vercel Git deployments are disabled in `vercel.json`; retained Vercel resources are not production authority. Reversing that setting requires an explicit hosting decision and verified domain/callback ownership.
+
+### Verified component cutovers
+
+| Component | Accepted outcome | Remaining evidence |
+| --- | --- | --- |
+| System DNS | Resolver ownership repaired; public/private resolution and IPv4/IPv6 exit routing sampled successfully | Reconnect/reboot continuity and application/container DNS bypass tests |
+| Recovery | Fresh encrypted upload verified at the recovery receiver | Restore rehearsal and continued retention checks |
+| Google consumers | Account, Calendar ownership, Drive scope/folder access and isolated runtime binding readback verified | Useful consumer work and downstream result acceptance |
+| Native Calendar | Sole native writer enabled; existing six daily slots and paused hosted predecessor verified | Reliable provider connectivity, native write readback when a legitimate note is due, and feedback backlog consumption |
+
+These are component acceptance records, not a blanket security or autonomous-operation certification. Public documentation is deliberately separate from private operational receipts.
