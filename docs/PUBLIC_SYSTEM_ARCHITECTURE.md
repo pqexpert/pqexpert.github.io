@@ -113,3 +113,7 @@ GitHub Pages owns this public website. Automatic Vercel Git deployments are disa
 | Native Calendar | Sole native writer enabled; existing six daily slots and paused hosted predecessor verified | Reliable provider connectivity, native write readback when a legitimate note is due, and feedback backlog consumption |
 
 These are component acceptance records, not a blanket security or autonomous-operation certification. Public documentation is deliberately separate from private operational receipts.
+
+## Accepted bounded autonomy update — November 2026
+
+The earlier component-only cutover record is superseded for the capabilities listed at `/provenance.html#autonomous-operations`: local inference/retrieval, App-authenticated publication and separate review, private networking, verified encrypted off-host recovery and a completed local operations-triage unit. These are live bounded capabilities. Full company-wide autonomy, every mission outcome, unrestricted subagents, CoOS production promotion, sustained throughput and 24/7 availability remain unproven. The public homepage and RSC surface link this dated evidence; no private receipts or credentials are released.
