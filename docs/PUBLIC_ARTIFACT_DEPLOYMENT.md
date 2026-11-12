@@ -39,9 +39,9 @@ This fallback protects the current source inventory; it is not an allowlist for 
 
 Any other host connected to this repository has its own output-directory and deployment settings. A GitHub Pages source change does not alter another provider's publication.
 
-For the existing Vercel Git integration, `vercel.json` runs the source check and the same public-artifact builder, then serves only `public-site/`. It retains the static "Other" framework preset and does not create a project, change domains, add functions, change the plan, or modify paid build settings. The generated directory is Git-ignored.
+Vercel is retired for this website. `vercel.json` sets `git.deploymentEnabled` to false for every branch. Do not wait for or trigger a Vercel deployment as publication evidence. GitHub Pages is the publication owner; verify its exact deployed commit and the custom-domain checks above. The retained artifact build settings are historical recovery information, not an active deployment instruction.
 
-After the Git integration deploys the intended commit, confirm the production deployment is ready and repeat the public-file and excluded-file checks on its assigned domains. The source check expects a Git checkout, as provided by this existing Git deployment path; a source upload without Git metadata will fail that check and must not be treated as a tested deployment.
+Reactivation requires an explicit hosting decision, an inventory of attached domains and callbacks, a reviewed configuration change, and public/excluded-file verification before any traffic cutover. Do not re-enable Vercel to work around a GitHub Pages failure. Permanent project deletion is separate from pausing deployment and must be confirmed in the provider's project settings.
 
 ## Rollback
 
