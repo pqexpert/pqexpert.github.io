@@ -2,9 +2,9 @@
 
 ## Rule
 
-**PQExpert is the canonical public front door.**
+**PQExpert is the canonical co-cognitive portfolio, freelance-opportunity and evidence front door; RSC independently owns its commercial security website.**
 
-External readers should be able to understand the work, review evidence, select a path, and contact the work without leaving PQExpert to discover a separate company website.
+PQExpert and restoration-mt.com are **two separate products** with distinct buyer intent and source attribution. PQExpert receives freelance IT/automation/advisory, human staffing requests, and Fabric portfolio engagement. Restoration-mt.com receives direct commercial cybersecurity and resilience inquiries. Neither site redirects its entire audience to the other, and neither inherits the other’s legal authority.
 
 ## Routing table
 
@@ -14,7 +14,8 @@ External readers should be able to understand the work, review evidence, select 
 | Post-quantum readiness | `engage.html` -> post-quantum readiness | RSC / research / partner path depending scope |
 | Executive or technical briefing | `engage.html` -> briefing / contact | Josh Allen / RSC / research context as appropriate |
 | Prime / lab / research collaboration | `engage.html` -> partner/research route | RSC or project/research channel |
-| Hiring / embedded operator opportunity | `career.html` and `contact.html` | Employment/recruiting channel, not RSC unless specifically structured that way |
+| Freelance IT project / technical gig | `career.html` → `contact.html?journey=professional` with `freelance_intake` attribution | Screen scope and authority; admit bounded Fabric work or refer to responsible human representative |
+| Hiring a human / staffing | `career.html` → `contact.html?journey=hiring` with `human_staffing` attribution | Identified actual human candidate or authorized staffing contact; never treat Josh Allen as a human applicant |
 | Professional verification | `provenance.html` | Direct follow-up only if necessary |
 | General or unclear request | `contact.html` | Route after first response |
 
@@ -35,7 +36,7 @@ Do not request secrets, credentials, classified information, export-controlled d
 
 ## RSC rule
 
-RSC is a **delivery and commercial context**, not a competing public doorway.
+RSC is a **separate commercial-security site and contracting/delivery context**, not a duplicate of PQExpert.
 
 Use RSC when the conversation requires:
 
@@ -45,7 +46,7 @@ Use RSC when the conversation requires:
 - formal business-development follow-through;
 - invoicing, contracting, or entity due diligence.
 
-Keep the public proof and intake route on PQExpert unless another authoritative process requires a different channel.
+Respect the originating domain and form UTM/source attribution. RSC inquiries start on restoration-mt.com and may be delivered through an existing HighLevel form provisionally, but must remain distinguishable from PQExpert freelance traffic. Inter-site referrals must be explicit and never erase origin. Distiller coordination does not imply automated personal ownership, legal authority, financial permissions or a live bookkeeping workflow.
 
 ## Evidence rule
 
@@ -54,3 +55,9 @@ Never route a conversation by implying maturity that the evidence does not suppo
 ## Implemented family entry points
 
 The full discovery-to-retention contract, including author/editorial, private, hiring, social, publisher, firm collection, and Distiller signals, is maintained in [FAMILY_JOURNEYS.md](FAMILY_JOURNEYS.md). The contact surface now uses four native HighLevel forms instead of the former Formspree route. Public purpose is not inferred commercial qualification or marketing consent.
+
+## Financial, legal and operational holds (2026-11-15)
+
+- Brex is a proposed settlement/accounting context; Stripe receipts and Brex deposits must be reconciled by native evidence before any statement about actual revenue. No finance writer, reconciliation service or cash movement is admitted by this public routing change.
+- Future CFO/legal agents, QuickBooks/Xero accounting, tax, contracts and DBA verification require separate exact entity/account mapping, scoped authority, review and provider readback. Keep them **on hold** rather than inventing functional operators.
+- Local Duck chat may intake bounded development and research missions under its existing authorization; a new website route or marketing promise does not prove that its entire software-development loop or human handoff executes autonomously.
