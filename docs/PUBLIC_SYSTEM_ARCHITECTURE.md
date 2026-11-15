@@ -117,3 +117,11 @@ These are component acceptance records, not a blanket security or autonomous-ope
 ## Accepted bounded autonomy update — November 2026
 
 The earlier component-only cutover record is superseded for the capabilities listed at `/provenance.html#autonomous-operations`: local inference/retrieval, App-authenticated publication and separate review, private networking, verified encrypted off-host recovery and a completed local operations-triage unit. These are live bounded capabilities. Full company-wide autonomy, every mission outcome, unrestricted subagents, CoOS production promotion, sustained throughput and 24/7 availability remain unproven. The public homepage and RSC surface link this dated evidence; no private receipts or credentials are released.
+
+## Modular component engineering — 2026-11-15
+
+**In Development.** The engineering estate has separated twelve reference components across security anomaly detection, local model interpretation, source ingestion, typed adapters, inter-agent evidence, resource scheduling, and locally governed operator/observability functions. Each reference repository has a specific implementation steward, basic testable source, a declared adoption boundary, and a migration issue. All initial repositories are private; this page does not publish their inventory, credentials, source topology or private operational records.
+
+This architectural split supports independently testable and replaceable components without granting new provider authority. It does **not** establish that all modules have replaced existing live services, that an AI can freely issue CRM or Calendar writes, or that a provider result occurred. Existing installed services continue under their current reviewed sources until a separate consumer migration is tested and verified in the actual provider/runtime.
+
+**Verified engineering facts:** twelve repositories created, individual initial commits confirmed, local reference tests passed, and a known GitHub Actions default-image Python 3.9 incompatibility was corrected by a compatible runner pin. To avoid unapproved private-runner charges, new reference CI workflows are manual-dispatch rather than a cost-incurring recurring schedule. Public claims will advance only after installed revisions and real outcomes are independently read back.
