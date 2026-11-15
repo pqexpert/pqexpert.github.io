@@ -2,7 +2,7 @@
 
 **Cybersecurity, systems resilience, and national-security strategy — with the receipts close by.**
 
-PQExpert.io is the public professional home of **Josh Allen**. It is built for the people who need a fast answer to four questions:
+PQExpert.io is the public evidence and engagement home for the **Josh Allen** Fabric operating identity. It is built for the people who need a fast answer to four questions:
 
 1. What can he do?
 2. What has he actually done?
@@ -13,7 +13,7 @@ Live site: https://pqexpert.io
 
 ## Start here
 
-- **Hiring or recruiting:** https://pqexpert.io/career.html
+- **Partnerships and collaboration:** https://pqexpert.io/career.html
 - **Technical work and evidence:** https://pqexpert.io/work.html
 - **Local Fabric and CoOS architecture:** [public architecture and cutover record](docs/PUBLIC_SYSTEM_ARCHITECTURE.md#local-operation-and-coos--2026-11-11)
 - **Writing and policy analysis:** https://pqexpert.io/writing.html
@@ -22,14 +22,14 @@ Live site: https://pqexpert.io
 
 ## The through-line
 
-Josh works at the intersection of cybersecurity, infrastructure, institutional resilience, and national-security strategy. The portfolio is intentionally broader than a code showcase and narrower than a personal archive: it exists to show useful capability, judgment, and evidence.
+The operating program works across cybersecurity, infrastructure, institutional resilience, and national-security strategy. The portfolio is intentionally broader than a code showcase and narrower than a personal archive: it exists to show useful capability, judgment, and evidence.
 
 The public work currently emphasizes:
 
 - cybersecurity and infrastructure operations;
 - security modernization and systems resilience;
 - technical-to-executive translation;
-- national-security graduate work through Syracuse Maxwell;
+- institutional security-policy research and governance analysis;
 - post-quantum readiness and other security R&D, clearly labeled by maturity;
 - public writing through **The Restoration Ledger**.
 
@@ -37,7 +37,7 @@ The public work currently emphasizes:
 
 The public brand is deliberately simple:
 
-- **Josh Allen** — the person and professional identity.
+- **Josh Allen** — the named coordinating identity for Fabric operations, not a human résumé, employee, founder or credential-holder.
 - **PQExpert.io** — the portfolio, proof, writing, hiring, and relationship front door.
 - **Restoration Security Consultants (RSC)** — the commercial delivery context when a conversation becomes scoped client work.
 - **The Restoration Ledger** — public writing and analysis.
@@ -102,8 +102,8 @@ Security concerns can be reported through [`SECURITY.md`](SECURITY.md).
 
 ## What success looks like
 
-A recruiter, hiring manager, policy professional, technical reviewer, or potential partner should be able to spend two minutes here and conclude:
+A technical reviewer, policy professional, potential partner or commercial buyer should be able to spend two minutes here and conclude:
 
-> Josh understands serious systems, can communicate across disciplines, distinguishes evidence from ambition, and is worth a conversation.
+> The work demonstrates serious systems thinking, cross-disciplinary communication, and evidence-aware execution worthy of review.
 
 That is the job of this repository. Everything else is implementation detail.
