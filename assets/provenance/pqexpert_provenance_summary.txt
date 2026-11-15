@@ -2,10 +2,12 @@ PQExpert Professional Media Verification
 ========================================
 
 URL: https://www.pqexpert.io
-Author: Josh Allen
+Author: PQExpert editorial team
 Organization: PQExpert
 Generated: 2026-05-28T22:36:16Z
-Intended use: professional portfolio, hiring-manager review, recruiter context, RSC partner or client due diligence
+Intended use: technical evidence, RSC partner or client due diligence
 Disclosure: AI-assisted professional headshot derived from user-supplied reference photographs.
 C2PA status: plain provenance-style transparency record; not a signed C2PA certificate.
 
+
+Historical image metadata is not proof of an individual named Josh Allen. The image is not used to represent the Fabric operating identity.
