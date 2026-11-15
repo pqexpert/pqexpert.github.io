@@ -174,6 +174,12 @@ def main() -> int:
             "root .nojekyll bypasses legacy publication exclusions; generate it only in the public artifact"
         )
 
+    relaunch = ROOT / "docs/RSC_PUBLIC_RELAUNCH_2026-11-15.md"
+    if relaunch.exists():
+        content = relaunch.read_text(encoding="utf-8")
+        if ("Person-facing professional front door: **Josh Allen**" in content
+                or "nonhuman" not in content or "legal signatory" not in content):
+            errors.append("RSC relaunch document: artificial human identity claim")
     html_files = sorted(ROOT.glob("*.html"))
     if not html_files:
         errors.append("no root HTML files found")

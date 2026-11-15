@@ -5,10 +5,11 @@
 Present serious, defensible cyber-resilience, security engineering, and applied research work to buyers, primes, laboratories, hiring managers and public-sector reviewers. Optimize for credible conversations and qualified engagements rather than inflated lead volume.
 
 ## Public identity
-- Person-facing professional front door: **Josh Allen** (PQExpert).
+- Public evidence and commercial discovery front door: **PQExpert.io**. **Josh Allen** is the principal-designated **nonhuman, managed co-cognitive operating identity** for bounded Fabric assistance, not a natural person, an independent sender, a human founder, an applicant, credential-holder, officer or legal signatory.
 - Commercial service identity: **Restoration Security Consultants**.
+- Human professional, legal, employment and academic credentials are attributed only to the actually verified person or entity, through the appropriate private due-diligence process. No identity conflation is allowed in LinkedIn, social metadata, public site copy, bylines or company records.
 - Publish **Bill Carson** and **Asteria Jones** only after validating permission, role, representation and accurate bios. Do not invent titles, portraits or credentials.
-- Do not promote older personal aliases on marketing pages, author bylines, metadata, or repository covers; preserve accurate legal notices, historical provenance, required corporate disclosures, and records.
+- Do not present a human portrait, Person structured data, artificial biography or human credential as Josh Allen; preserve truthful historical provenance, legal disclosures, credential ownership, and corporate records without publishing private human aliases gratuitously.
 - Do not imply NSA, intelligence-community, DoD or other governmental affiliation, clearance, endorsement, selection, contract or security certification without evidence and publication authorization.
 
 ## Verified current findings and remediation
