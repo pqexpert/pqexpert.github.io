@@ -36,7 +36,6 @@ PUBLIC_FILES = (
     "assets/js/main.js",
     "assets/js/intake.js",
     "assets/img/favicon.svg",
-    "assets/img/headshot.jpg",
     "assets/img/og-image.jpg",
     "assets/provenance/pqexpert_manifest.json",
     "assets/provenance/pqexpert_provenance_summary.txt",
