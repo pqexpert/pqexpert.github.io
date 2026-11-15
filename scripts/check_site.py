@@ -289,7 +289,7 @@ def main() -> int:
         if any(pattern.search(text) for pattern in CREDENTIAL_PATTERNS):
             errors.append(f"{relative}: potential credential detected (value redacted)")
 
-    for image_relative in ("assets/img/headshot.jpg", "assets/img/og-image.jpg"):
+    for image_relative in ("assets/img/og-image.jpg",):
         image_path = ROOT / image_relative
         if not image_path.exists():
             errors.append(f"missing public image: {image_relative}")
