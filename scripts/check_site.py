@@ -206,7 +206,7 @@ def main() -> int:
                 errors.append("index.html: nonhuman Josh Allen labeled Person in JSON-LD")
         if identity_page == "rsc.html" and re.search(r'"founder"\s*:\s*\{[^}]*"Josh Allen"', content):
             errors.append("rsc.html: Josh Allen attributed as human founder")
-        moved_path = ROOT / "404.html"
+    moved_path = ROOT / "404.html"
     if moved_path.exists():
         moved_text = moved_path.read_text(encoding="utf-8")
         for route in LEGACY_LAUNCH17_ROUTES:
