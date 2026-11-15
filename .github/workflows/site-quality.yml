@@ -24,3 +24,8 @@ jobs:
 
       - name: Run static site quality checks
         run: python scripts/check_site.py
+
+      - name: Verify deployable public artifact
+        run: |
+          python scripts/build_public_site.py "$RUNNER_TEMP/pqexpert-review-artifact"
+          test ! -e "$RUNNER_TEMP/pqexpert-review-artifact/assets/img/headshot.jpg"
