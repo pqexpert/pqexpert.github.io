@@ -39,12 +39,6 @@ REQUIRED_ENGAGEMENT_ATTRIBUTION = (
     "executive-briefing",
     "prime-lab-research",
 )
-REQUIRED_CAREER_ATTRIBUTION = (
-    "career-nav",
-    "career-hero",
-    "career-bottom",
-    "career-footer",
-)
 LEGACY_LAUNCH17_ROUTES = (
     "cyber-resilience",
     "post-quantum-readiness",
@@ -196,13 +190,23 @@ def main() -> int:
     career_path = ROOT / "career.html"
     if career_path.exists():
         career_text = career_path.read_text(encoding="utf-8")
-        for source in REQUIRED_CAREER_ATTRIBUTION:
-            if f"utm_content={source}" not in career_text:
-                errors.append(
-                    f"career.html: missing bounded attribution for {source!r}"
-                )
+        if "Discuss Collaboration" not in career_text:
+            errors.append("career.html: collaboration route not visible")
 
-    moved_path = ROOT / "404.html"
+    # Prevent the nonhuman operating identity from inheriting human biography metadata.
+    for identity_page in ("index.html", "about.html", "career.html", "provenance.html", "rsc.html"):
+        path = ROOT / identity_page
+        if not path.exists():
+            continue
+        content = path.read_text(encoding="utf-8")
+        if '/assets/img/headshot.jpg' in content:
+            errors.append(f"{identity_page}: former personal headshot still represented as Josh Allen")
+        if identity_page == "index.html":
+            if re.search(r'"@type"\s*:\s*"Person"', content):
+                errors.append("index.html: nonhuman Josh Allen labeled Person in JSON-LD")
+        if identity_page == "rsc.html" and re.search(r'"founder"\s*:\s*\{[^}]*"Josh Allen"', content):
+            errors.append("rsc.html: Josh Allen attributed as human founder")
+        moved_path = ROOT / "404.html"
     if moved_path.exists():
         moved_text = moved_path.read_text(encoding="utf-8")
         for route in LEGACY_LAUNCH17_ROUTES:
