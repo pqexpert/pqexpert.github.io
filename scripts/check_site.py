@@ -180,6 +180,11 @@ def main() -> int:
         if ("Person-facing professional front door: **Josh Allen**" in content
                 or "nonhuman" not in content or "legal signatory" not in content):
             errors.append("RSC relaunch document: artificial human identity claim")
+    for page in ("index.html", "about.html", "provenance.html"):
+        content = (ROOT / page).read_text(encoding="utf-8")
+        if "nonhuman" not in content.lower() or "AI" not in content:
+            errors.append(f"{page}: managed AI identity must be explicitly disclosed")
+
     html_files = sorted(ROOT.glob("*.html"))
     if not html_files:
         errors.append("no root HTML files found")
