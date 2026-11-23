@@ -2,9 +2,9 @@
 
 ## Rule
 
-**PQExpert is the canonical co-cognitive portfolio, freelance-opportunity and evidence front door; RSC independently owns its commercial security website.**
+**PQExpert is the canonical public front door; RSC is the commercial operating context behind appropriately scoped cybersecurity work.**
 
-PQExpert and restoration-mt.com are **two separate products** with distinct buyer intent and source attribution. PQExpert receives freelance IT/automation/advisory, human staffing requests, and Fabric portfolio engagement. Restoration-mt.com receives direct commercial cybersecurity and resilience inquiries. Neither site redirects its entire audience to the other, and neither inherits the other’s legal authority.
+PQExpert receives freelance IT/automation/advisory, human-staffing, Fabric portfolio, and commercial-security inquiries through source-attributed routes. External readers should not be forced to discover or switch to a separate RSC website before a serious conversation can begin. Routing to RSC after scope is explicit, preserves the originating journey, and does not transfer legal authority.
 
 ## Routing table
 
@@ -36,7 +36,7 @@ Do not request secrets, credentials, classified information, export-controlled d
 
 ## RSC rule
 
-RSC is a **separate commercial-security site and contracting/delivery context**, not a duplicate of PQExpert.
+RSC is a **separate contracting and delivery context**, not a separate required public website or a duplicate of PQExpert.
 
 Use RSC when the conversation requires:
 
@@ -46,7 +46,7 @@ Use RSC when the conversation requires:
 - formal business-development follow-through;
 - invoicing, contracting, or entity due diligence.
 
-Respect the originating domain and form UTM/source attribution. RSC inquiries start on restoration-mt.com and may be delivered through an existing HighLevel form provisionally, but must remain distinguishable from PQExpert freelance traffic. Inter-site referrals must be explicit and never erase origin. Distiller coordination does not imply automated personal ownership, legal authority, financial permissions or a live bookkeeping workflow.
+Respect the originating route and form UTM/source attribution. RSC inquiries start at `rsc.html` or the relevant `engage.html` path and may be delivered through an existing HighLevel form provisionally, but must remain distinguishable from freelance traffic. Referrals must be explicit and never erase origin. Distiller coordination does not imply automated personal ownership, legal authority, financial permissions or a live bookkeeping workflow.
 
 ## Evidence rule
 
