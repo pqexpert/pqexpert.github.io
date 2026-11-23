@@ -67,6 +67,7 @@ PUBLIC_TEXT_GLOBS = (
     "assets/js/*.js",
     "assets/provenance/*",
     "docs/PUBLIC_*.md",
+    "docs/CLIENT_ROUTING.md",
 )
 FORBIDDEN_PUBLIC_MARKERS = (
     "mailto:",
