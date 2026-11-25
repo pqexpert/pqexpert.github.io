@@ -48,7 +48,8 @@ document.querySelectorAll('a[href]').forEach(link => {
   if (destination.origin !== window.location.origin || destination.searchParams.get('journey') === 'private' || campaignParams.get('journey') === 'private') return;
   ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(key => {
     const value = campaignParams.get(key);
-    if (value && /^[a-zA-Z0-9_.-]{1,80}$/.test(value) && !destination.searchParams.has(key)) destination.searchParams.set(key, value);
+    const keepDestinationContent = key === 'utm_content' && destination.searchParams.has(key);
+    if (value && /^[a-zA-Z0-9_.-]{1,80}$/.test(value) && !keepDestinationContent) destination.searchParams.set(key, value);
   });
   link.href = destination.pathname + destination.search + destination.hash;
 });
