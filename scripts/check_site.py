@@ -199,6 +199,20 @@ def main() -> int:
                     f"engage.html: missing bounded attribution for {source!r}"
                 )
 
+    rsc_path = ROOT / "rsc.html"
+    if rsc_path.exists():
+        rsc_text = rsc_path.read_text(encoding="utf-8")
+        for destination in re.findall(r'href="(/(?:engage|contact)\.html[^"]*)"', rsc_text):
+            for attribution in (
+                "utm_source=rsc",
+                "utm_medium=owned_site",
+                "utm_campaign=rsc-context",
+            ):
+                if attribution not in destination:
+                    errors.append(
+                        f"rsc.html: missing {attribution!r} on RSC handoff {destination!r}"
+                    )
+
     career_path = ROOT / "career.html"
     if career_path.exists():
         career_text = career_path.read_text(encoding="utf-8")
@@ -272,6 +286,13 @@ def main() -> int:
                 if marker.lower() in lowered:
                     errors.append(
                         f"{public_file.relative_to(ROOT)}: restricted public markup detected (value redacted)"
+                    )
+
+            for forbidden in FORBIDDEN_PUBLIC_ROUTING:
+                if forbidden.lower() in lowered:
+                    errors.append(
+                        f"{public_file.relative_to(ROOT)}: forbidden public routing reference {forbidden!r}; "
+                        "keep the client journey on PQExpert and route RSC internally"
                     )
 
     # A public repository exposes scripts and documentation as well as web pages.
