@@ -207,6 +207,7 @@ def main() -> int:
                 "utm_source=rsc",
                 "utm_medium=owned_site",
                 "utm_campaign=rsc-context",
+                "utm_content=rsc-route",
             ):
                 if attribution not in destination:
                     errors.append(
